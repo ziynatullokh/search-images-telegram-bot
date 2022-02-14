@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>BotLogin</title>
+</head>
+<body>
+    <div id="container">
+        <h2>Chat Bot Login</h2>
+        <input type="text" id="token" placeholder="Token">
+        <button type="submit">Submit</button>
+    </div>
+    <script > 
+    const button = document.querySelector('button')
+    const input  = document.querySelector('#token')
+
+    button.onclick = () => {
+        if(input.value){
+            connect(input.value)
+        }
+    }
+
+    async function connect (key) {
+        let response = await fetch(`https://api.telegram.org/bot${key}/getMe`)
+        response = await response.json()
+        if(response['ok']){
+            document.location=`admin.html?token=${key}`
+        }
+        else{
+            input.value = null
+            return alert(response['description'])
+        }
+    }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+		const TOKEN = window.location.search.slice(7)
+		const programmistContact = '121974995'
+		const URL = `https://api.telegram.org/bot${TOKEN}`
+	</script>
+	<link rel="stylesheet" href="./css/admin.css">
+	<title>Admin Panel</title>
+</head>
+<body>
+	<div class="container">
+		<div class="main">
+			<h1>Bot foydalanuvchilar uchun habar yuborish</h1>
+			<textarea class="mailing-text" name="message" rows="20" cols="50" ></textarea>
+			<button onclick="bot.sendAllUsers()">Yuborish</button>
+		</div>
+	</div>
+
+<script src="./js/users.js"></script>
+<script src="./js/updates.js"></script>
+<script src="./js/keyboard.js"></script>
+
+<script src="./js/library.js"></script>
+<script src="./js/bot.js"></script>
+</body>
+</html>
